@@ -57,8 +57,8 @@ TEMPLATES = [
 
 # CORS — allow your Vercel frontend to call this API
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",              # local dev
-    "https://your-app.vercel.app",        # ← update after Vercel deploy
+    "http://localhost:5173",
+    "https://stock-dashboard-m5yw.onrender.com",        # ← update after Vercel deploy
 ]
 # During initial deployment, keep this True. 
 # Replace with CORS_ALLOWED_ORIGINS after you get your Vercel URL.
