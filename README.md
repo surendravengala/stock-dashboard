@@ -229,3 +229,4 @@ Caching layer (Redis)
 
 **Name**: Vengala Surendra Kumar Reddy
 **GitHub**: https://github.com/surendravengala
+**live link**:https://stock-dashboard-surendravengalas-projects.vercel.app/
