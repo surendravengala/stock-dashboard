@@ -1,0 +1,16 @@
+# render.yaml
+# Render reads this file to know how to build and run your service.
+
+services:
+  - type: web
+    name: stock-dashboard-api
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn core.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true      # Render auto-generates a secure key
+      - key: DEBUG
+        value: "False"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
