@@ -5,12 +5,11 @@
 
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
-// axios.create() makes a reusable instance with default settings
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000,  // fail after 10 seconds if no response
+  timeout: 15000,  // increase to 15s — Render free tier can be slow to wake up
 });
 
 export const getCompanies = () =>
