@@ -1,0 +1,174 @@
+/* ============================================================
+   SIDEBAR.CSS
+   Styles the inside of the sidebar panel.
+   ============================================================ */
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;           /* inner scroll handled by .sidebar-list */
+}
+
+/* Brand strip at top */
+.sidebar-brand {
+  height: var(--header-height);
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sidebar-brand-icon {
+  font-size: 1.1rem;
+}
+
+.sidebar-brand-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Search box */
+.sidebar-search-wrap {
+  padding: 12px 12px 8px;
+  flex-shrink: 0;
+}
+
+.sidebar-search {
+  width: 100%;
+  padding: 7px 10px 7px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  outline: none;
+  transition: border-color 0.18s, background 0.18s;
+  position: relative;
+}
+
+.sidebar-search:focus {
+  border-color: var(--accent);
+  background: rgba(108, 116, 232, 0.06);
+}
+
+.sidebar-search-wrap {
+  position: relative;
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+/* Section label */
+.sidebar-section-label {
+  padding: 10px 16px 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Scrollable list — THIS is what scrolls, not the page */
+.sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 8px 16px;
+}
+
+.sidebar-list::-webkit-scrollbar { width: 3px; }
+.sidebar-list::-webkit-scrollbar-track { background: transparent; }
+.sidebar-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* Individual company row */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 2px;
+  transition: background 0.15s;
+  border: 1px solid transparent;
+  gap: 8px;
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.sidebar-item.active {
+  background: var(--accent-soft);
+  border-color: rgba(108, 116, 232, 0.25);
+}
+
+.sidebar-item-left {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;               /* allows text-overflow to work */
+}
+
+.sidebar-item-symbol {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.sidebar-item.active .sidebar-item-symbol {
+  color: var(--accent);
+}
+
+.sidebar-item-name {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;    /* "Tata Consultan..." */
+  max-width: 140px;
+}
+
+/* Sector badge */
+.sidebar-item-badge {
+  font-size: 0.62rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sidebar-item.active .sidebar-item-badge {
+  background: rgba(108, 116, 232, 0.15);
+  color: var(--accent);
+}
+
+/* Empty search state */
+.sidebar-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
